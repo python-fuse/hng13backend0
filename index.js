@@ -17,6 +17,8 @@ app.use("/me", async (req, res) => {
 
   const catFact = await getCatFact();
 
+  res.setHeader("Content-Type", "application/json");
+
   res.status(catFact.status === "success" ? 200 : 500).json({
     status: catFact.status,
     user: {
