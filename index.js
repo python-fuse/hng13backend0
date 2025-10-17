@@ -1,9 +1,16 @@
 import express from "express";
+import cors from "cors";
 import { getCatFact } from "./cats.js";
 
 const PORT = 3000;
 
 const app = express();
+
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+  })
+);
 
 app.use("/me", async (req, res) => {
   const currentTimestamp = new Date();
